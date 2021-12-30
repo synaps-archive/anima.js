@@ -18,11 +18,12 @@ function IsAnimaResourceSupported(resource: string): boolean {
   return AnimaResources[resource];
 }
 
+/* Metamask Wallet */
 const MetamaskIssuingRequestFields = {
   [PASSPORT]: MetamaskPassportIssuingRequestFields,
 };
 
-export default {
+export {
   PASSPORT,
   NATIONAL_ID,
   DRIVER_LICENSE,

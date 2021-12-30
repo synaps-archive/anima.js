@@ -1,4 +1,4 @@
-import { MetamaskIssuingRequestFields } from "../../registry/resources/index";
+import { MetamaskIssuingRequestFields } from "../../resources/index";
 
 export function IssuingRequest(resource: string, message: any): string {
   const challenge = {

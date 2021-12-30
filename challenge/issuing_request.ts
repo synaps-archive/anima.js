@@ -1,9 +1,9 @@
 import { Owner, Issuer } from "../types";
 import moment from "moment";
-import { IsAnimaWalletSupported, METAMASK } from "../registry/wallets";
-import { IsAnimaChainSupported } from "../registry/chains";
-import { IsAnimaResourceSupported } from "../registry/resources/index";
-import Metamask from "../wallets/metamask";
+import { IsAnimaWalletSupported, METAMASK } from "../wallets";
+import { IsAnimaChainSupported } from "../chains";
+import { IsAnimaResourceSupported } from "../resources/index";
+import Metamask from "../wallets/metamask/index";
 
 export function GetIssuingRequest(
   resource: string,

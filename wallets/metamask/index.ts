@@ -1,5 +1,3 @@
 import { IssuingRequest } from "./issuing_request";
 
-export default {
-  IssuingRequest,
-};
+export default { IssuingRequest };

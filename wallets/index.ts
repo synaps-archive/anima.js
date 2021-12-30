@@ -5,11 +5,8 @@ const AnimaWallets = {
   [METAMASK]: true,
 };
 
-export function IsAnimaWalletSupported(wallet: string): boolean {
+function IsAnimaWalletSupported(wallet: string): boolean {
   return AnimaWallets[wallet];
 }
 
-export default {
-  METAMASK,
-  IsAnimaWalletSupported,
-};
+export { METAMASK, IsAnimaWalletSupported };
