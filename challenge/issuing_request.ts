@@ -5,7 +5,7 @@ import { IsAnimaChainSupported } from "../registry/chains";
 import { IsAnimaResourceSupported } from "../registry/resources/index";
 import Metamask from "../wallets/metamask";
 
-export function Get(
+export function GetIssuingRequest(
   resource: string,
   fields: any,
   owner: Owner,
