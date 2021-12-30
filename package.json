@@ -1,5 +1,6 @@
 {
   "name": "anima.js",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:anima-protocol/anima.js.git",
@@ -9,6 +10,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "ts-loader": "^9.2.6"
   }
 }
