@@ -1,7 +1,7 @@
 /* Anima Supported Wallets */
 const ETH = "ETH";
 
-const AnimaChains = {
+const AnimaChains: { [key: string]: boolean } = {
   [ETH]: true,
 };
 
