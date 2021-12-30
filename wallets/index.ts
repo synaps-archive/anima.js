@@ -9,4 +9,4 @@ function IsAnimaWalletSupported(wallet: string): boolean {
   return AnimaWallets[wallet];
 }
 
-export { METAMASK, IsAnimaWalletSupported };
+export default { METAMASK, IsAnimaWalletSupported };

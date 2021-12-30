@@ -23,7 +23,7 @@ const MetamaskIssuingRequestFields = {
   [PASSPORT]: MetamaskPassportIssuingRequestFields,
 };
 
-export {
+export default {
   PASSPORT,
   NATIONAL_ID,
   DRIVER_LICENSE,

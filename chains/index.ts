@@ -9,4 +9,4 @@ function IsAnimaChainSupported(chain: string): boolean {
   return AnimaChains[chain];
 }
 
-export { ETH, IsAnimaChainSupported };
+export default { ETH, IsAnimaChainSupported };
