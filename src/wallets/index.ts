@@ -1,7 +1,7 @@
 /* Anima Supported Wallets */
 const METAMASK = "METAMASK";
 
-const AnimaWallets = {
+const AnimaWallets: { [key: string]: boolean } = {
   [METAMASK]: true,
 };
 
