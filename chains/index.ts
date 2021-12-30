@@ -5,8 +5,8 @@ const AnimaChains: { [key: string]: boolean } = {
   [ETH]: true,
 };
 
-function IsAnimaChainSupported(chain: string): boolean {
+function IsSupported(chain: string): boolean {
   return AnimaChains[chain];
 }
 
-export default { ETH, IsAnimaChainSupported };
+export default { ETH, IsSupported };

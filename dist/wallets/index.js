@@ -4,7 +4,7 @@ var METAMASK = "METAMASK";
 var AnimaWallets = (_a = {},
     _a[METAMASK] = true,
     _a);
-function IsAnimaWalletSupported(wallet) {
+function IsSupported(wallet) {
     return AnimaWallets[wallet];
 }
-export default { METAMASK: METAMASK, IsAnimaWalletSupported: IsAnimaWalletSupported };
+export default { METAMASK: METAMASK, IsSupported: IsSupported };

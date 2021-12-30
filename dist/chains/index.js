@@ -4,7 +4,7 @@ var ETH = "ETH";
 var AnimaChains = (_a = {},
     _a[ETH] = true,
     _a);
-function IsAnimaChainSupported(chain) {
+function IsSupported(chain) {
     return AnimaChains[chain];
 }
-export default { ETH: ETH, IsAnimaChainSupported: IsAnimaChainSupported };
+export default { ETH: ETH, IsSupported: IsSupported };

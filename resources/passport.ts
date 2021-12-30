@@ -1,3 +1,5 @@
+import { IssuingRequestField } from "../types";
+
 export interface Passport {
   filename: string;
   lastname: string;
@@ -10,7 +12,7 @@ export interface Passport {
   liveness_photo: string;
 }
 
-export const MetamaskPassportIssuingRequestFields = [
+export const MetamaskPassportIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "passport_page",
     type: "string",

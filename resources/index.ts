@@ -1,4 +1,5 @@
 import { MetamaskPassportIssuingRequestFields } from "./passport";
+import { IssuingRequestField } from "../types";
 
 /* Anima Resources */
 const PASSPORT = "anima:resource:passport";
@@ -14,12 +15,12 @@ const AnimaResources: { [key: string]: boolean } = {
   RESIDENT_PERMIT: true,
 };
 
-function IsAnimaResourceSupported(resource: string): boolean {
+function IsSupported(resource: string): boolean {
   return AnimaResources[resource];
 }
 
 /* Metamask Wallet */
-const MetamaskIssuingRequestFields = {
+const MetamaskIssuingRequestFields: { [key: string]: IssuingRequestField[] } = {
   [PASSPORT]: MetamaskPassportIssuingRequestFields,
 };
 
@@ -28,6 +29,6 @@ export default {
   NATIONAL_ID,
   DRIVER_LICENSE,
   RESIDENT_PERMIT,
-  IsAnimaResourceSupported,
+  IsSupported,
   MetamaskIssuingRequestFields,
 };

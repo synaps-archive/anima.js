@@ -9,3 +9,8 @@ export interface Issuer {
   id: string;
   public_address: string;
 }
+
+export interface IssuingRequestField {
+  name: string;
+  type: string;
+}

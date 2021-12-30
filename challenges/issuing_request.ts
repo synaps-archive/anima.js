@@ -1,8 +1,8 @@
 import { Owner, Issuer } from "../types";
 import moment from "moment";
-import { IsAnimaWalletSupported, METAMASK } from "../wallets";
-import { IsAnimaChainSupported } from "../chains";
-import { IsAnimaResourceSupported } from "../resources/index";
+import Wallets from "../wallets";
+import Chains from "../chains";
+import Resources from "../resources/index";
 import Metamask from "../wallets/metamask/index";
 
 export function GetIssuingRequest(
@@ -11,15 +11,15 @@ export function GetIssuingRequest(
   owner: Owner,
   issuer: Issuer
 ) {
-  if (IsAnimaResourceSupported(resource) === false) {
+  if (Resources.IsSupported(resource) === false) {
     throw Error("Resource not supported");
   }
 
-  if (IsAnimaWalletSupported(owner.wallet) === false) {
+  if (Wallets.IsSupported(owner.wallet) === false) {
     throw Error("Wallet not supported");
   }
 
-  if (IsAnimaChainSupported(owner.chain) === false) {
+  if (Chains.IsSupported(owner.chain) === false) {
     throw Error("Chain not supported");
   }
 
@@ -44,7 +44,7 @@ export function GetIssuingRequest(
   let challenge = "";
 
   switch (owner.wallet) {
-    case METAMASK:
+    case Wallets.METAMASK:
       challenge = Metamask.IssuingRequest(resource, message);
       break;
 

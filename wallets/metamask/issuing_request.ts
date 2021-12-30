@@ -1,4 +1,4 @@
-import { MetamaskIssuingRequestFields } from "../../resources/index";
+import Resources from "../../resources/index";
 
 export function IssuingRequest(resource: string, message: any): string {
   const challenge = {
@@ -15,7 +15,7 @@ export function IssuingRequest(resource: string, message: any): string {
         { name: "issuer", type: "Issuer" },
         { name: "owner", type: "Owner" },
       ],
-      Fields: MetamaskIssuingRequestFields[resource],
+      Fields: Resources.MetamaskIssuingRequestFields[resource],
       Request: [
         {
           name: "resource",

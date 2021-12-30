@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { MetamaskIssuingRequestFields } from "../../resources/index";
+import Resources from "../../resources/index";
 export function IssuingRequest(resource, message) {
     var challenge = __assign(__assign({ domain: {
             name: "anima",
@@ -21,7 +21,7 @@ export function IssuingRequest(resource, message) {
                 { name: "issuer", type: "Issuer" },
                 { name: "owner", type: "Owner" },
             ],
-            Fields: MetamaskIssuingRequestFields[resource],
+            Fields: Resources.MetamaskIssuingRequestFields[resource],
             Request: [
                 {
                     name: "resource",

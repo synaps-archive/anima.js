@@ -12,7 +12,7 @@ var AnimaResources = {
     DRIVER_LICENSE: true,
     RESIDENT_PERMIT: true,
 };
-function IsAnimaResourceSupported(resource) {
+function IsSupported(resource) {
     return AnimaResources[resource];
 }
 /* Metamask Wallet */
@@ -24,6 +24,6 @@ export default {
     NATIONAL_ID: NATIONAL_ID,
     DRIVER_LICENSE: DRIVER_LICENSE,
     RESIDENT_PERMIT: RESIDENT_PERMIT,
-    IsAnimaResourceSupported: IsAnimaResourceSupported,
+    IsSupported: IsSupported,
     MetamaskIssuingRequestFields: MetamaskIssuingRequestFields,
 };
