@@ -7,7 +7,7 @@ const DRIVER_LICENSE = "anima:resource:driver_license";
 const RESIDENT_PERMIT = "anima:resource:resident_permit";
 
 /* Anima Supported Resources */
-const AnimaResources = {
+const AnimaResources: { [key: string]: boolean } = {
   PASSPORT: true,
   NATIONAL_ID: true,
   DRIVER_LICENSE: true,
