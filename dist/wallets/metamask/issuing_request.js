@@ -44,5 +44,5 @@ export function IssuingRequest(resource, message) {
             ],
         },
     };
-    return JSON.stringify(challenge);
+    return challenge;
 }

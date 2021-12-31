@@ -30,7 +30,7 @@ export function GetIssuingRequest(resource, fields, owner, issuer) {
             id: issuer.id,
         },
     };
-    var challenge = "";
+    var challenge = {};
     switch (owner.wallet) {
         case Wallets.METAMASK:
             challenge = Metamask.IssuingRequest(resource, message);
