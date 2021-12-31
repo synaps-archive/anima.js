@@ -7,7 +7,7 @@ export function IssuingRequest(resource: string, message: any): string {
       version: "1.0",
       chainId: 1,
     },
-    ...message,
+    message,
     primaryType: "Main",
     types: {
       Main: [
