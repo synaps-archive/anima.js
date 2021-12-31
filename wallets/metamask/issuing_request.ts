@@ -1,6 +1,6 @@
 import Resources from "../../resources/index";
 
-export function IssuingRequest(resource: string, message: any): string {
+export function IssuingRequest(resource: string, message: any): object {
   const challenge = {
     domain: {
       name: "anima",
@@ -45,5 +45,5 @@ export function IssuingRequest(resource: string, message: any): string {
       ],
     },
   };
-  return JSON.stringify(challenge);
+  return challenge;
 }

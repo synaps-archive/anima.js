@@ -41,7 +41,7 @@ export function GetIssuingRequest(
     },
   };
 
-  let challenge = "";
+  let challenge = {};
 
   switch (owner.wallet) {
     case Wallets.METAMASK:
