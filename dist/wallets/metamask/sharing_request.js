@@ -9,12 +9,11 @@ export function SharingRequest(message) {
         primaryType: "Main",
         types: {
             Main: [
-                { name: "request", type: "Request" },
+                { name: "share", type: "Share" },
                 { name: "verifier", type: "Verifier" },
                 { name: "owner", type: "Owner" },
             ],
-            Attributes: {},
-            Request: [
+            Share: [
                 {
                     name: "resource",
                     type: "string",
@@ -23,7 +22,7 @@ export function SharingRequest(message) {
                     name: "shared_at",
                     type: "string",
                 },
-                { name: "attributes", type: "Attributes" },
+                { name: "attributes", type: "object" },
             ],
             Owner: [
                 {
