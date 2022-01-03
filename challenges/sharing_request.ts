@@ -24,7 +24,7 @@ export function GetSharingRequest(
   }
 
   const message = {
-    request: {
+    share: {
       resource: resource,
       shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
       attributes,
