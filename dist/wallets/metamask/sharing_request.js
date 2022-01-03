@@ -22,7 +22,6 @@ export function SharingRequest(message) {
                     name: "shared_at",
                     type: "string",
                 },
-                { name: "attributes", type: "object" },
             ],
             Owner: [
                 {
