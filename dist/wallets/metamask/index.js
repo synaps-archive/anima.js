@@ -1,2 +1,3 @@
 import { IssuingRequest } from "./issuing_request";
-export default { IssuingRequest: IssuingRequest };
+import { SharingRequest } from "./sharing_request";
+export default { IssuingRequest: IssuingRequest, SharingRequest: SharingRequest };

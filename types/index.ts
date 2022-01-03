@@ -10,9 +10,14 @@ interface Issuer {
   public_address: string;
 }
 
+interface Verifier {
+  id: string;
+  public_address: string;
+}
+
 interface IssuingRequestField {
   name: string;
   type: string;
 }
 
-export { IssuingRequestField, Issuer, Owner };
+export { IssuingRequestField, Issuer, Owner, Verifier };
