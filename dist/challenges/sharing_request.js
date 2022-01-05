@@ -14,7 +14,7 @@ export function GetSharingRequest(resource, attributes, owner, verifier) {
         throw Error("Chain not supported");
     }
     var message = {
-        share: {
+        request: {
             resource: resource,
             shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
             attributes: attributes,
