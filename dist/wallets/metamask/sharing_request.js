@@ -15,6 +15,10 @@ export function SharingRequest(message) {
             ],
             Share: [
                 {
+                    name: "schema",
+                    type: "string",
+                },
+                {
                     name: "resource",
                     type: "string",
                 },

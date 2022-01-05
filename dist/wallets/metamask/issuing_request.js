@@ -17,6 +17,10 @@ export function IssuingRequest(resource, message) {
             Fields: Resources.MetamaskIssuingRequestFields[resource],
             Request: [
                 {
+                    name: "schema",
+                    type: "string",
+                },
+                {
                     name: "resource",
                     type: "string",
                 },
