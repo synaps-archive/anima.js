@@ -7,7 +7,14 @@ export function IssuingRequest(resource: string, message: any): object {
       version: "1.0",
       chainId: 1,
     },
-    message,
+    message: {
+      ...message,
+      request: {
+        schema: "anima:schema:eth_issuing_request",
+        ...message.request,
+      },
+    },
+
     primaryType: "Main",
     types: {
       Main: [

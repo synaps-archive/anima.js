@@ -5,15 +5,21 @@ export function SharingRequest(message: any): object {
       version: "1.0",
       chainId: 1,
     },
-    message,
+    message: {
+      ...message,
+      request: {
+        schema: "anima:schema:eth_sharing_request",
+        ...message.request,
+      },
+    },
     primaryType: "Main",
     types: {
       Main: [
-        { name: "share", type: "Share" },
+        { name: "request", type: "Request" },
         { name: "verifier", type: "Verifier" },
         { name: "owner", type: "Owner" },
       ],
-      Share: [
+      Request: [
         {
           name: "schema",
           type: "string",
