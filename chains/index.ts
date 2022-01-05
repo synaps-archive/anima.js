@@ -1,4 +1,4 @@
-/* Anima Supported Wallets */
+/* Anima Supported Chains */
 const ETH = "ETH";
 
 const AnimaChains: { [key: string]: boolean } = {

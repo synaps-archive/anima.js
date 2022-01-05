@@ -1,4 +1,4 @@
-export var MetamaskPassportIssuingRequestFields = [
+export var ETH_PassportIssuingRequestFields = [
     {
         name: "passport_page",
         type: "string",

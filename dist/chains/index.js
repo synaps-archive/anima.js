@@ -1,5 +1,5 @@
 var _a;
-/* Anima Supported Wallets */
+/* Anima Supported Chains */
 var ETH = "ETH";
 var AnimaChains = (_a = {},
     _a[ETH] = true,

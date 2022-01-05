@@ -12,7 +12,7 @@ export interface Passport {
   liveness_photo: string;
 }
 
-export const MetamaskPassportIssuingRequestFields: IssuingRequestField[] = [
+export const ETH_PassportIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "passport_page",
     type: "string",

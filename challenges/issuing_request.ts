@@ -3,7 +3,7 @@ import moment from "moment";
 import Wallets from "../wallets";
 import Chains from "../chains";
 import Resources from "../resources/index";
-import Metamask from "../wallets/metamask/index";
+import Ethereum from "../chains/ethereum/index";
 
 export function GetIssuingRequest(
   resource: string,
@@ -43,9 +43,9 @@ export function GetIssuingRequest(
 
   let challenge = {};
 
-  switch (owner.wallet) {
-    case Wallets.METAMASK:
-      challenge = Metamask.IssuingRequest(resource, message);
+  switch (owner.chain) {
+    case Chains.ETH:
+      challenge = Ethereum.IssuingRequest(resource, message);
       break;
 
     default:

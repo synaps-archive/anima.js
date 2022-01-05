@@ -1,5 +1,5 @@
 var _a;
-import { MetamaskPassportIssuingRequestFields } from "./passport";
+import { ETH_PassportIssuingRequestFields } from "./passport";
 /* Anima Resources */
 var PASSPORT = "anima:resource:passport";
 var NATIONAL_ID = "anima:resource:national_id";
@@ -15,9 +15,9 @@ var AnimaResources = {
 function IsSupported(resource) {
     return AnimaResources[resource];
 }
-/* Metamask Wallet */
-var MetamaskIssuingRequestFields = (_a = {},
-    _a[PASSPORT] = MetamaskPassportIssuingRequestFields,
+/* Ethereum chain */
+var ETH_IssuingRequestFields = (_a = {},
+    _a[PASSPORT] = ETH_PassportIssuingRequestFields,
     _a);
 export default {
     PASSPORT: PASSPORT,
@@ -25,5 +25,5 @@ export default {
     DRIVER_LICENSE: DRIVER_LICENSE,
     RESIDENT_PERMIT: RESIDENT_PERMIT,
     IsSupported: IsSupported,
-    MetamaskIssuingRequestFields: MetamaskIssuingRequestFields,
+    ETH_IssuingRequestFields: ETH_IssuingRequestFields,
 };

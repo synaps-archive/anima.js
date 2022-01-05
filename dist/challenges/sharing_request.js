@@ -1,8 +1,8 @@
 import moment from "moment";
-import Wallets from "../wallets";
 import Chains from "../chains";
+import Wallets from "../wallets";
 import Resources from "../resources/index";
-import Metamask from "../wallets/metamask/index";
+import Ethereum from "../chains/ethereum/index";
 export function GetSharingRequest(resource, attributes, owner, verifier) {
     if (Resources.IsSupported(resource) === false) {
         throw Error("Resource not supported");
@@ -30,12 +30,12 @@ export function GetSharingRequest(resource, attributes, owner, verifier) {
         },
     };
     var challenge = {};
-    switch (owner.wallet) {
-        case Wallets.METAMASK:
-            challenge = Metamask.SharingRequest(message);
+    switch (owner.chain) {
+        case Chains.ETH:
+            challenge = Ethereum.SharingRequest(message);
             break;
         default:
-            throw "Unable to get issuing request";
+            throw "Unable to get sharing request";
     }
     return JSON.stringify(challenge);
 }

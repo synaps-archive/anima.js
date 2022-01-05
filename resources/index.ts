@@ -1,4 +1,4 @@
-import { MetamaskPassportIssuingRequestFields } from "./passport";
+import { ETH_PassportIssuingRequestFields } from "./passport";
 import { IssuingRequestField } from "../types";
 
 /* Anima Resources */
@@ -19,9 +19,9 @@ function IsSupported(resource: string): boolean {
   return AnimaResources[resource];
 }
 
-/* Metamask Wallet */
-const MetamaskIssuingRequestFields: { [key: string]: IssuingRequestField[] } = {
-  [PASSPORT]: MetamaskPassportIssuingRequestFields,
+/* Ethereum chain */
+const ETH_IssuingRequestFields: { [key: string]: IssuingRequestField[] } = {
+  [PASSPORT]: ETH_PassportIssuingRequestFields,
 };
 
 export default {
@@ -30,5 +30,5 @@ export default {
   DRIVER_LICENSE,
   RESIDENT_PERMIT,
   IsSupported,
-  MetamaskIssuingRequestFields,
+  ETH_IssuingRequestFields,
 };

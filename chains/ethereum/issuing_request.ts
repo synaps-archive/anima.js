@@ -15,7 +15,7 @@ export function IssuingRequest(resource: string, message: any): object {
         { name: "issuer", type: "Issuer" },
         { name: "owner", type: "Owner" },
       ],
-      Fields: Resources.MetamaskIssuingRequestFields[resource],
+      Fields: Resources.ETH_IssuingRequestFields[resource],
       Request: [
         {
           name: "schema",
