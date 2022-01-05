@@ -10,7 +10,7 @@ export function IssuingRequest(resource: string, message: any): object {
     message: {
       ...message,
       request: {
-        schema: "anima:schema:eth_issuing_request",
+        schema: "anima:schema:eth_issuing",
         ...message.request,
       },
     },
