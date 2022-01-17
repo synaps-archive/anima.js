@@ -3,7 +3,7 @@ export function SharingRequest(message: any): object {
     domain: {
       name: "anima",
       version: "1.0",
-      chainId: 1,
+      chainId: "1",
     },
     message: {
       ...message,

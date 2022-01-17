@@ -14,7 +14,7 @@ export function SharingRequest(message) {
         domain: {
             name: "anima",
             version: "1.0",
-            chainId: 1,
+            chainId: "1",
         },
         message: __assign(__assign({}, message), { request: __assign({ schema: "anima:schema:eth_sharing" }, message.request) }),
         primaryType: "Main",
