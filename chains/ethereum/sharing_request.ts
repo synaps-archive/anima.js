@@ -48,6 +48,20 @@ export function SharingRequest(message: any): object {
         { name: "public_address", type: "string" },
         { name: "id", type: "string" },
       ],
+      EIP712Domain: [
+        {
+          name: "name",
+          type: "string",
+        },
+        {
+          name: "chainId",
+          type: "uint256",
+        },
+        {
+          name: "version",
+          type: "string",
+        },
+      ],
     },
   };
   return challenge;
