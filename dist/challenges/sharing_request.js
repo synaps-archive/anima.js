@@ -11,7 +11,7 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     return false;
 }
 function GetSharingType(resourceAttributes, requestedAttributes) {
-    var registeredAttrs;
+    var registeredAttrs = {};
     Object.keys(requestedAttributes).forEach(function (slug) {
         if (IsInResourceAttributes(resourceAttributes, slug) === false) {
             return "";

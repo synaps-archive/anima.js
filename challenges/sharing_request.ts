@@ -21,7 +21,7 @@ function GetSharingType(
   resourceAttributes: Attribute[],
   requestedAttributes: { [key: string]: string }
 ): string {
-  let registeredAttrs: { [key: string]: boolean };
+  let registeredAttrs: { [key: string]: boolean } = {};
 
   Object.keys(requestedAttributes).forEach(function (slug) {
     if (IsInResourceAttributes(resourceAttributes, slug) === false) {
