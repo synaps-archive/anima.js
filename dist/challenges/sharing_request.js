@@ -15,6 +15,7 @@ function GetSharingType(resourceAttributes, requestedAttributes) {
     Object.keys(requestedAttributes).forEach(function (slug) {
         if (IsInResourceAttributes(resourceAttributes, slug) === true) {
             regAttrs[slug] = true;
+            console.log("-> FOUND!");
         }
     });
     var documentAttrLen = resourceAttributes.length;
