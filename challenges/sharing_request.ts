@@ -21,23 +21,26 @@ function GetSharingType(
   resourceAttributes: Attribute[],
   requestedAttributes: { [key: string]: string }
 ): string {
-  let registeredAttrs: { [key: string]: boolean } = {};
+  let regAttrs: { [key: string]: boolean } = {};
 
   Object.keys(requestedAttributes).forEach(function (slug) {
     if (IsInResourceAttributes(resourceAttributes, slug) === false) {
       return "";
     }
-    registeredAttrs[slug] = true;
+    regAttrs[slug] = true;
   });
 
   const documentAttrLen = resourceAttributes.length;
 
-  let registeredAttrLen = 0;
-  Object.keys(registeredAttrs).forEach(() => {
-    registeredAttrLen++;
+  let registeredAttrs = [];
+  Object.keys(regAttrs).forEach((key) => {
+    registeredAttrs.push(key);
   });
 
-  if (documentAttrLen === registeredAttrLen) {
+  console.log(`Doc len : ${documentAttrLen}`);
+  console.log(`Reg len : ${registeredAttrs.length}`);
+
+  if (documentAttrLen === registeredAttrs.length) {
     return "document";
   }
   return "attribtues";

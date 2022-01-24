@@ -11,19 +11,21 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     return false;
 }
 function GetSharingType(resourceAttributes, requestedAttributes) {
-    var registeredAttrs = {};
+    var regAttrs = {};
     Object.keys(requestedAttributes).forEach(function (slug) {
         if (IsInResourceAttributes(resourceAttributes, slug) === false) {
             return "";
         }
-        registeredAttrs[slug] = true;
+        regAttrs[slug] = true;
     });
     var documentAttrLen = resourceAttributes.length;
-    var registeredAttrLen = 0;
-    Object.keys(registeredAttrs).forEach(function () {
-        registeredAttrLen++;
+    var registeredAttrs = [];
+    Object.keys(regAttrs).forEach(function (key) {
+        registeredAttrs.push(key);
     });
-    if (documentAttrLen === registeredAttrLen) {
+    console.log("Doc len : ".concat(documentAttrLen));
+    console.log("Reg len : ".concat(registeredAttrs.length));
+    if (documentAttrLen === registeredAttrs.length) {
         return "document";
     }
     return "attribtues";
