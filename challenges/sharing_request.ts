@@ -20,12 +20,12 @@ function IsInResourceAttributes(
 function GetSharingType(
   resourceAttributes: Attribute[],
   requestedAttributes: { [key: string]: string }
-): [boolean, string] {
+): string {
   let registeredAttrs: { [key: string]: boolean };
 
   Object.keys(requestedAttributes).forEach(function (slug) {
     if (IsInResourceAttributes(resourceAttributes, slug) === false) {
-      return [false, ""];
+      return "";
     }
     registeredAttrs[slug] = true;
   });
@@ -38,9 +38,9 @@ function GetSharingType(
   });
 
   if (documentAttrLen === registeredAttrLen) {
-    return [true, "document"];
+    return "document";
   }
-  return [true, "attributes"];
+  return "attribtues";
 }
 
 export function GetSharingRequest(
@@ -58,8 +58,8 @@ export function GetSharingRequest(
   }
 
   const attrs = Resources.ResourceAttributes[resource];
-  const [valid, sharingType] = GetSharingType(attrs, attributes);
-  if (valid === false) {
+  const sharingType = GetSharingType(attrs, attributes);
+  if (sharingType === "") {
     throw Error("Invalid attributes sharing");
   }
 
