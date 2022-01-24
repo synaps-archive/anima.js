@@ -1,27 +1,54 @@
 import moment from "moment";
 import Chains from "../chains";
-import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
+function IsInResourceAttributes(resourceAttributes, slug) {
+    resourceAttributes.forEach(function (attr) {
+        if (attr.name === slug) {
+            return true;
+        }
+    });
+    return false;
+}
+function GetSharingType(resourceAttributes, requestedAttributes) {
+    var registeredAttrs;
+    Object.keys(requestedAttributes).forEach(function (slug) {
+        if (IsInResourceAttributes(resourceAttributes, slug) === false) {
+            return [false, ""];
+        }
+        registeredAttrs[slug] = true;
+    });
+    var documentAttrLen = resourceAttributes.length;
+    var registeredAttrLen = 0;
+    Object.keys(registeredAttrs).forEach(function () {
+        registeredAttrLen++;
+    });
+    if (documentAttrLen === registeredAttrLen) {
+        return [true, "document"];
+    }
+    return [true, "attributes"];
+}
 export function GetSharingRequest(resource, attributes, owner, verifier) {
     if (Resources.IsSupported(resource) === false) {
         throw Error("Resource not supported");
     }
-    if (Wallets.IsSupported(owner.wallet) === false) {
-        throw Error("Wallet not supported");
-    }
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
+    }
+    var attrs = Resources.ResourceAttributes[resource];
+    var _a = GetSharingType(attrs, attributes), valid = _a[0], sharingType = _a[1];
+    if (valid === false) {
+        throw Error("Invalid attributes sharing");
     }
     var message = {
         request: {
             resource: resource,
             shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
+            type: sharingType,
             attributes: attributes,
         },
         owner: {
             chain: owner.chain,
-            wallet: owner.wallet,
             public_address: owner.public_address,
         },
         verifier: {

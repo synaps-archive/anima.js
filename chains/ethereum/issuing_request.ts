@@ -22,7 +22,7 @@ export function IssuingRequest(resource: string, message: any): object {
         { name: "issuer", type: "Issuer" },
         { name: "owner", type: "Owner" },
       ],
-      Fields: Resources.ETH_IssuingRequestFields[resource],
+      Fields: Resources.IssuingRequestFields[resource],
       Request: [
         {
           name: "schema",

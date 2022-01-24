@@ -1,5 +1,5 @@
-import { ETH_PassportIssuingRequestFields } from "./passport";
-import { IssuingRequestField } from "../types";
+import { PassportIssuingRequestFields, PassportAttributes } from "./passport";
+import { Attribute, IssuingRequestField } from "../types";
 
 /* Anima Resources */
 const PASSPORT = "anima:resource:passport";
@@ -20,8 +20,12 @@ function IsSupported(resource: string): boolean {
 }
 
 /* Ethereum chain */
-const ETH_IssuingRequestFields: { [key: string]: IssuingRequestField[] } = {
-  [PASSPORT]: ETH_PassportIssuingRequestFields,
+const IssuingRequestFields: { [key: string]: IssuingRequestField[] } = {
+  [PASSPORT]: PassportIssuingRequestFields,
+};
+
+const ResourceAttributes: { [key: string]: Attribute[] } = {
+  [PASSPORT]: PassportAttributes,
 };
 
 export default {
@@ -30,5 +34,6 @@ export default {
   DRIVER_LICENSE,
   RESIDENT_PERMIT,
   IsSupported,
-  ETH_IssuingRequestFields,
+  IssuingRequestFields,
+  ResourceAttributes,
 };

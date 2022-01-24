@@ -1,6 +1,5 @@
 interface Owner {
   chain: string;
-  wallet: string;
   public_address: string;
   public_key_encryption?: string;
 }
@@ -20,4 +19,9 @@ interface IssuingRequestField {
   type: string;
 }
 
-export { IssuingRequestField, Issuer, Owner, Verifier };
+interface Attribute {
+  name: string;
+  type: string;
+}
+
+export { IssuingRequestField, Attribute, Issuer, Owner, Verifier };

@@ -1,14 +1,10 @@
 import moment from "moment";
-import Wallets from "../wallets";
 import Chains from "../chains";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 export function GetIssuingRequest(resource, fields, owner, issuer) {
     if (Resources.IsSupported(resource) === false) {
         throw Error("Resource not supported");
-    }
-    if (Wallets.IsSupported(owner.wallet) === false) {
-        throw Error("Wallet not supported");
     }
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
@@ -21,7 +17,6 @@ export function GetIssuingRequest(resource, fields, owner, issuer) {
         },
         owner: {
             chain: owner.chain,
-            wallet: owner.wallet,
             public_address: owner.public_address,
             public_key_encryption: owner.public_key_encryption,
         },

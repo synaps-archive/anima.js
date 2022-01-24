@@ -1,4 +1,4 @@
-import { IssuingRequestField } from "../types";
+import { IssuingRequestField, Attribute } from "../types";
 
 export interface Passport {
   filename: string;
@@ -12,7 +12,7 @@ export interface Passport {
   liveness_photo: string;
 }
 
-export const ETH_PassportIssuingRequestFields: IssuingRequestField[] = [
+export const PassportIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "passport_page",
     type: "string",
@@ -20,5 +20,44 @@ export const ETH_PassportIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "liveness_photo",
     type: "string",
+  },
+];
+
+export const PassportAttributes: Attribute[] = [
+  {
+    name: "firstname",
+    type: "string",
+  },
+  {
+    name: "lastname",
+    type: "string",
+  },
+  {
+    name: "birth_date",
+    type: "string",
+  },
+  {
+    name: "nationality",
+    type: "string",
+  },
+  {
+    name: "document_country",
+    type: "string",
+  },
+  {
+    name: "document_number",
+    type: "string",
+  },
+  {
+    name: "document_expiration",
+    type: "string",
+  },
+  {
+    name: "passport_page",
+    type: "file",
+  },
+  {
+    name: "liveness_photo",
+    type: "file",
   },
 ];
