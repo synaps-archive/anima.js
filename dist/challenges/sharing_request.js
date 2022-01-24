@@ -4,7 +4,9 @@ import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 function IsInResourceAttributes(resourceAttributes, slug) {
     resourceAttributes.forEach(function (attr) {
+        console.log("".concat(attr.name, " <> ").concat(slug));
         if (attr.name === slug) {
+            console.log("slug found");
             return true;
         }
     });

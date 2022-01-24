@@ -10,7 +10,9 @@ function IsInResourceAttributes(
   slug: string
 ): boolean {
   resourceAttributes.forEach((attr) => {
+    console.log(`${attr.name} <> ${slug}`);
     if (attr.name === slug) {
+      console.log("slug found");
       return true;
     }
   });
