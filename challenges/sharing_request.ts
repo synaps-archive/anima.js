@@ -10,9 +10,7 @@ function IsInResourceAttributes(
   slug: string
 ): boolean {
   resourceAttributes.forEach((attr) => {
-    console.log(`${attr.name} <> ${slug}`);
     if (attr.name === slug) {
-      console.log("slug found");
       return true;
     }
   });
@@ -26,10 +24,9 @@ function GetSharingType(
   let regAttrs: { [key: string]: boolean } = {};
 
   Object.keys(requestedAttributes).forEach(function (slug) {
-    if (IsInResourceAttributes(resourceAttributes, slug) === false) {
-      return "";
+    if (IsInResourceAttributes(resourceAttributes, slug) === true) {
+      regAttrs[slug] = true;
     }
-    regAttrs[slug] = true;
   });
 
   const documentAttrLen = resourceAttributes.length;

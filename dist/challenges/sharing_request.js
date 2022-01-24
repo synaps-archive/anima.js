@@ -4,9 +4,7 @@ import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 function IsInResourceAttributes(resourceAttributes, slug) {
     resourceAttributes.forEach(function (attr) {
-        console.log("".concat(attr.name, " <> ").concat(slug));
         if (attr.name === slug) {
-            console.log("slug found");
             return true;
         }
     });
@@ -15,10 +13,9 @@ function IsInResourceAttributes(resourceAttributes, slug) {
 function GetSharingType(resourceAttributes, requestedAttributes) {
     var regAttrs = {};
     Object.keys(requestedAttributes).forEach(function (slug) {
-        if (IsInResourceAttributes(resourceAttributes, slug) === false) {
-            return "";
+        if (IsInResourceAttributes(resourceAttributes, slug) === true) {
+            regAttrs[slug] = true;
         }
-        regAttrs[slug] = true;
     });
     var documentAttrLen = resourceAttributes.length;
     var registeredAttrs = [];
