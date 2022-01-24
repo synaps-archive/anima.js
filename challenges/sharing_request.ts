@@ -27,10 +27,8 @@ function GetSharingType(
 
   Object.keys(requestedAttributes).forEach(function (slug) {
     const res = IsInResourceAttributes(resourceAttributes, slug);
-    console.log(`${slug} -> ${res}`);
     if (IsInResourceAttributes(resourceAttributes, slug) === true) {
       regAttrs[slug] = true;
-      console.log("-> FOUND!");
     }
   });
 
@@ -40,9 +38,6 @@ function GetSharingType(
   Object.keys(regAttrs).forEach((key) => {
     registeredAttrs.push(key);
   });
-
-  console.log(`Doc len : ${documentAttrLen}`);
-  console.log(`Reg len : ${registeredAttrs.length}`);
 
   if (documentAttrLen === registeredAttrs.length) {
     return "document";
@@ -74,7 +69,7 @@ export function GetSharingRequest(
     request: {
       resource: resource,
       shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
-      type: sharingType, // or attributes
+      type: sharingType,
       attributes,
     },
     owner: {

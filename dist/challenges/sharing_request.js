@@ -16,10 +16,8 @@ function GetSharingType(resourceAttributes, requestedAttributes) {
     var regAttrs = {};
     Object.keys(requestedAttributes).forEach(function (slug) {
         var res = IsInResourceAttributes(resourceAttributes, slug);
-        console.log("".concat(slug, " -> ").concat(res));
         if (IsInResourceAttributes(resourceAttributes, slug) === true) {
             regAttrs[slug] = true;
-            console.log("-> FOUND!");
         }
     });
     var documentAttrLen = resourceAttributes.length;
@@ -27,8 +25,6 @@ function GetSharingType(resourceAttributes, requestedAttributes) {
     Object.keys(regAttrs).forEach(function (key) {
         registeredAttrs.push(key);
     });
-    console.log("Doc len : ".concat(documentAttrLen));
-    console.log("Reg len : ".concat(registeredAttrs.length));
     if (documentAttrLen === registeredAttrs.length) {
         return "document";
     }
