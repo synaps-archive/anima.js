@@ -46,15 +46,11 @@ export function IssuingRequest(resource, message) {
                     name: "chain",
                     type: "string",
                 },
-                {
-                    name: "wallet",
-                    type: "string",
-                },
-                { name: "public_address", type: "string" },
+                { name: "public_address", type: "address" },
                 { name: "public_key_encryption", type: "string" },
             ],
             Issuer: [
-                { name: "public_address", type: "string" },
+                { name: "public_address", type: "address" },
                 { name: "id", type: "string" },
             ],
             EIP712Domain: [

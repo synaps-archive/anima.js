@@ -38,14 +38,10 @@ export function SharingRequest(message: any): object {
           name: "chain",
           type: "string",
         },
-        {
-          name: "wallet",
-          type: "string",
-        },
-        { name: "public_address", type: "string" },
+        { name: "public_address", type: "address" },
       ],
       Verifier: [
-        { name: "public_address", type: "string" },
+        { name: "public_address", type: "address" },
         { name: "id", type: "string" },
       ],
       EIP712Domain: [
