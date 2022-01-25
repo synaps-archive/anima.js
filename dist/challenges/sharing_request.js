@@ -23,12 +23,15 @@ function GetSharingType(resourceAttributes, requestedAttributes) {
     var documentAttrLen = resourceAttributes.length;
     var registeredAttrs = [];
     Object.keys(regAttrs).forEach(function (key) {
-        registeredAttrs.push(key);
+        registeredAttrs.push({
+            name: key,
+            type: "string",
+        });
     });
     if (documentAttrLen === registeredAttrs.length) {
-        return "document";
+        return [registeredAttrs, "document"];
     }
-    return "attribtues";
+    return [registeredAttrs, "attributes"];
 }
 export function GetSharingRequest(resource, attributes, owner, verifier) {
     if (Resources.IsSupported(resource) === false) {
@@ -38,7 +41,7 @@ export function GetSharingRequest(resource, attributes, owner, verifier) {
         throw Error("Chain not supported");
     }
     var attrs = Resources.ResourceAttributes[resource];
-    var sharingType = GetSharingType(attrs, attributes);
+    var _a = GetSharingType(attrs, attributes), requestedAttributes = _a[0], sharingType = _a[1];
     if (sharingType === "") {
         throw Error("Invalid attributes sharing");
     }
@@ -61,7 +64,7 @@ export function GetSharingRequest(resource, attributes, owner, verifier) {
     var challenge = {};
     switch (owner.chain) {
         case Chains.ETH:
-            challenge = Ethereum.SharingRequest(message);
+            challenge = Ethereum.SharingRequest(message, requestedAttributes);
             break;
         default:
             throw "Unable to get sharing request";

@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-export function SharingRequest(message) {
+export function SharingRequest(message, attributes) {
     var challenge = {
         domain: {
             name: "anima",
@@ -37,6 +37,14 @@ export function SharingRequest(message) {
                     name: "shared_at",
                     type: "string",
                 },
+                {
+                    name: "type",
+                    type: "string",
+                },
+                {
+                    name: "attributes",
+                    type: "Attributes",
+                },
             ],
             Owner: [
                 {
@@ -49,6 +57,7 @@ export function SharingRequest(message) {
                 { name: "public_address", type: "address" },
                 { name: "id", type: "string" },
             ],
+            Attributes: attributes,
             EIP712Domain: [
                 {
                     name: "name",
