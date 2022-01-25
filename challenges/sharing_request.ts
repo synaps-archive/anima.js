@@ -22,7 +22,7 @@ function IsInResourceAttributes(
 function GetSharingType(
   resourceAttributes: Attribute[],
   requestedAttributes: { [key: string]: string }
-): string {
+): [Attribute[], string] {
   let regAttrs: { [key: string]: boolean } = {};
 
   Object.keys(requestedAttributes).forEach(function (slug) {
@@ -34,15 +34,18 @@ function GetSharingType(
 
   const documentAttrLen = resourceAttributes.length;
 
-  let registeredAttrs = [];
+  let registeredAttrs: Attribute[] = [];
   Object.keys(regAttrs).forEach((key) => {
-    registeredAttrs.push(key);
+    registeredAttrs.push({
+      name: key,
+      type: "string",
+    });
   });
 
   if (documentAttrLen === registeredAttrs.length) {
-    return "document";
+    return [registeredAttrs, "document"];
   }
-  return "attribtues";
+  return [registeredAttrs, "attributes"];
 }
 
 export function GetSharingRequest(
@@ -60,7 +63,7 @@ export function GetSharingRequest(
   }
 
   const attrs = Resources.ResourceAttributes[resource];
-  const sharingType = GetSharingType(attrs, attributes);
+  const [requestedAttributes, sharingType] = GetSharingType(attrs, attributes);
   if (sharingType === "") {
     throw Error("Invalid attributes sharing");
   }
@@ -86,7 +89,7 @@ export function GetSharingRequest(
 
   switch (owner.chain) {
     case Chains.ETH:
-      challenge = Ethereum.SharingRequest(message);
+      challenge = Ethereum.SharingRequest(message, requestedAttributes);
       break;
 
     default:

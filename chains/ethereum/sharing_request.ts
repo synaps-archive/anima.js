@@ -1,4 +1,6 @@
-export function SharingRequest(message: any): object {
+import { Attribute } from "../../types";
+
+export function SharingRequest(message: any, attributes: Attribute[]): object {
   const challenge = {
     domain: {
       name: "anima",
@@ -32,6 +34,14 @@ export function SharingRequest(message: any): object {
           name: "shared_at",
           type: "string",
         },
+        {
+          name: "type",
+          type: "string",
+        },
+        {
+          name: "attributes",
+          type: "Attributes",
+        },
       ],
       Owner: [
         {
@@ -44,6 +54,7 @@ export function SharingRequest(message: any): object {
         { name: "public_address", type: "address" },
         { name: "id", type: "string" },
       ],
+      Attributes: attributes,
       EIP712Domain: [
         {
           name: "name",
