@@ -42,7 +42,7 @@ export function SharingRequest(message, attributes) {
                     type: "string",
                 },
                 {
-                    name: "document",
+                    name: "credential",
                     type: "string",
                 },
                 {

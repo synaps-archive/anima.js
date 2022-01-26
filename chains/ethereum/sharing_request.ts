@@ -39,7 +39,7 @@ export function SharingRequest(message: any, attributes: Attribute[]): object {
           type: "string",
         },
         {
-          name: "document",
+          name: "credential",
           type: "string",
         },
         {
