@@ -3,7 +3,7 @@ import moment from "moment";
 import Chains from "../chains";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
-import { Attribute, IssuingRequestField } from "../types";
+import { Attribute } from "../types";
 
 function IsInResourceAttributes(
   resourceAttributes: Attribute[],
@@ -50,7 +50,7 @@ function GetSharingType(
 
 export function GetSharingRequest(
   resource: string,
-  document: string,
+  credential: string,
   attributes: { [key: string]: string },
   owner: Owner,
   verifier: Verifier
@@ -73,7 +73,7 @@ export function GetSharingRequest(
     request: {
       resource: resource,
       shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
-      document: document,
+      credential: credential,
       type: sharingType,
       attributes,
     },
