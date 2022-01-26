@@ -43,7 +43,7 @@ function GetSharingType(
   });
 
   if (documentAttrLen === registeredAttrs.length) {
-    return [registeredAttrs, "document"];
+    return [registeredAttrs, "credential"];
   }
   return [registeredAttrs, "attributes"];
 }
