@@ -33,7 +33,7 @@ function GetSharingType(resourceAttributes, requestedAttributes) {
     }
     return [registeredAttrs, "attributes"];
 }
-export function GetSharingRequest(resource, attributes, owner, verifier) {
+export function GetSharingRequest(resource, document, attributes, owner, verifier) {
     if (Resources.IsSupported(resource) === false) {
         throw Error("Resource not supported");
     }
@@ -49,6 +49,7 @@ export function GetSharingRequest(resource, attributes, owner, verifier) {
         request: {
             resource: resource,
             shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
+            document: document,
             type: sharingType,
             attributes: attributes,
         },

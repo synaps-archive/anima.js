@@ -50,6 +50,7 @@ function GetSharingType(
 
 export function GetSharingRequest(
   resource: string,
+  document: string,
   attributes: { [key: string]: string },
   owner: Owner,
   verifier: Verifier
@@ -72,6 +73,7 @@ export function GetSharingRequest(
     request: {
       resource: resource,
       shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
+      document: document,
       type: sharingType,
       attributes,
     },
