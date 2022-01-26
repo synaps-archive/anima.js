@@ -42,6 +42,10 @@ export function SharingRequest(message, attributes) {
                     type: "string",
                 },
                 {
+                    name: "document",
+                    type: "string",
+                },
+                {
                     name: "attributes",
                     type: "Attributes",
                 },
