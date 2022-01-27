@@ -1,4 +1,5 @@
 interface Owner {
+  id: string;
   chain: string;
   public_address: string;
   wallet: string;
@@ -7,11 +8,13 @@ interface Owner {
 
 interface Issuer {
   id: string;
+  chain: string;
   public_address: string;
 }
 
 interface Verifier {
   id: string;
+  chain: string;
   public_address: string;
 }
 
