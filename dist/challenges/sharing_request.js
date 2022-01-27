@@ -59,14 +59,14 @@ export function GetSharingRequest(resource, credential, attributes, owner, verif
         },
         owner: {
             id: "anima:wallet:".concat(owner.public_address),
+            public_address: owner.public_address,
             chain: owner.chain,
             wallet: owner.wallet,
-            public_address: owner.public_address,
         },
         verifier: {
-            public_address: verifier.public_address,
-            challenge: verifier.chain,
             id: verifier.id,
+            public_address: verifier.public_address,
+            chain: verifier.chain,
         },
     };
     var challenge = {};

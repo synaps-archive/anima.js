@@ -48,18 +48,15 @@ export function SharingRequest(message: any, attributes: Attribute[]): object {
         },
       ],
       Owner: [
-        {
-          name: "chain",
-          type: "string",
-        },
+        { name: "id", type: "string" },
+        { name: "public_address", type: "address" },
         { name: "chain", type: "string" },
         { name: "wallet", type: "string" },
-        { name: "public_address", type: "address" },
       ],
       Verifier: [
+        { name: "id", type: "string" },
         { name: "public_address", type: "address" },
         { name: "chain", type: "string" },
-        { name: "id", type: "string" },
       ],
       Attributes: attributes,
       EIP712Domain: [
