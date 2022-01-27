@@ -31,11 +31,13 @@ export function GetIssuingRequest(
     },
     owner: {
       chain: owner.chain,
+      wallet: owner.wallet,
       public_address: owner.public_address,
       public_key_encryption: owner.public_key_encryption,
     },
     issuer: {
       public_address: issuer.public_address,
+      chain: issuer.chain,
       id: issuer.id,
     },
   };
