@@ -1,6 +1,7 @@
 interface Owner {
   chain: string;
   public_address: string;
+  wallet: string;
   public_key_encryption?: string;
 }
 

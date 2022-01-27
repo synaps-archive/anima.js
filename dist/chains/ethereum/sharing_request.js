@@ -55,10 +55,13 @@ export function SharingRequest(message, attributes) {
                     name: "chain",
                     type: "string",
                 },
+                { name: "chain", type: "string" },
+                { name: "wallet", type: "string" },
                 { name: "public_address", type: "address" },
             ],
             Verifier: [
                 { name: "public_address", type: "address" },
+                { name: "chain", type: "string" },
                 { name: "id", type: "string" },
             ],
             Attributes: attributes,

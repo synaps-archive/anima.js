@@ -1,5 +1,6 @@
 import moment from "moment";
 import Chains from "../chains";
+import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 export function GetIssuingRequest(resource, fields, owner, issuer) {
@@ -8,6 +9,9 @@ export function GetIssuingRequest(resource, fields, owner, issuer) {
     }
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
+    }
+    if (Wallets.IsSupported(owner.wallet) === false) {
+        throw Error("Wallet not supported");
     }
     var message = {
         request: {

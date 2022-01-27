@@ -47,10 +47,12 @@ export function IssuingRequest(resource, message) {
                     type: "string",
                 },
                 { name: "public_address", type: "address" },
+                { name: "wallet", type: "string" },
                 { name: "public_key_encryption", type: "string" },
             ],
             Issuer: [
                 { name: "public_address", type: "address" },
+                { name: "chain", type: "string" },
                 { name: "id", type: "string" },
             ],
             EIP712Domain: [

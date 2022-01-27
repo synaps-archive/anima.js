@@ -1,6 +1,7 @@
 import { Owner, Verifier } from "../types";
 import moment from "moment";
 import Chains from "../chains";
+import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 import { Attribute } from "../types";
@@ -61,6 +62,10 @@ export function GetSharingRequest(
 
   if (Chains.IsSupported(owner.chain) === false) {
     throw Error("Chain not supported");
+  }
+
+  if (Wallets.IsSupported(owner.wallet) === false) {
+    throw Error("Wallet not supported");
   }
 
   const attrs = Resources.ResourceAttributes[resource];

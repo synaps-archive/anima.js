@@ -1,5 +1,6 @@
 import moment from "moment";
 import Chains from "../chains";
+import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 function IsInResourceAttributes(resourceAttributes, slug) {
@@ -39,6 +40,9 @@ export function GetSharingRequest(resource, credential, attributes, owner, verif
     }
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
+    }
+    if (Wallets.IsSupported(owner.wallet) === false) {
+        throw Error("Wallet not supported");
     }
     var attrs = Resources.ResourceAttributes[resource];
     var _a = GetSharingType(attrs, attributes), requestedAttributes = _a[0], sharingType = _a[1];
