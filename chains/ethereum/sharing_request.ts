@@ -10,7 +10,6 @@ export function SharingRequest(message: any, attributes: Attribute[]): object {
     message: {
       ...message,
       request: {
-        schema: "anima:schema:eth_sharing",
         ...message.request,
       },
     },
