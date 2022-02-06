@@ -30,6 +30,7 @@ export function GetIssuingRequest(
       fields,
     },
     owner: {
+      id: `anima:wallet:${owner.public_address}`,
       chain: owner.chain,
       wallet: owner.wallet,
       public_address: owner.public_address,
