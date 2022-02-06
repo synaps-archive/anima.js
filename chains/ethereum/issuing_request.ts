@@ -10,7 +10,7 @@ export function IssuingRequest(resource: string, message: any): object {
     message: {
       ...message,
       request: {
-        schema: "anima:schema:eth_issuing",
+        schema: "anima:schema:eth_issuing_authorization",
         ...message.request,
       },
     },
@@ -24,10 +24,6 @@ export function IssuingRequest(resource: string, message: any): object {
       ],
       Fields: Resources.IssuingRequestFields[resource],
       Request: [
-        {
-          name: "schema",
-          type: "string",
-        },
         {
           name: "resource",
           type: "string",

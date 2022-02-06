@@ -17,7 +17,7 @@ export function IssuingRequest(resource, message) {
             version: "1.0",
             chainId: "1",
         },
-        message: __assign(__assign({}, message), { request: __assign({ schema: "anima:schema:eth_issuing" }, message.request) }),
+        message: __assign(__assign({}, message), { request: __assign({ schema: "anima:schema:eth_issuing_authorization" }, message.request) }),
         primaryType: "Main",
         types: {
             Main: [
@@ -27,10 +27,6 @@ export function IssuingRequest(resource, message) {
             ],
             Fields: Resources.IssuingRequestFields[resource],
             Request: [
-                {
-                    name: "schema",
-                    type: "string",
-                },
                 {
                     name: "resource",
                     type: "string",
