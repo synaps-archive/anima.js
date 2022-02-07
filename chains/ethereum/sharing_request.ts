@@ -22,10 +22,6 @@ export function SharingRequest(message: any, attributes: Attribute[]): object {
       ],
       Request: [
         {
-          name: "schema",
-          type: "string",
-        },
-        {
           name: "resource",
           type: "string",
         },

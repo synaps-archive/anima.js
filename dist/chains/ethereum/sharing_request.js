@@ -26,10 +26,6 @@ export function SharingRequest(message, attributes) {
             ],
             Request: [
                 {
-                    name: "schema",
-                    type: "string",
-                },
-                {
                     name: "resource",
                     type: "string",
                 },
