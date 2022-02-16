@@ -4,6 +4,14 @@ import {
   NationalIdAttributes,
   NationalIdIssuingRequestFields,
 } from "./national_id";
+import {
+  DriverLicenseAttributes,
+  DriverLicenseIssuingRequestFields,
+} from "./driver_license";
+import {
+  ResidentPermitAttributes,
+  ResidentPermitIssuingRequestFields,
+} from "./resident_permit";
 
 /* Anima Resources */
 const PASSPORT = "anima:resource:passport";
@@ -27,11 +35,15 @@ function IsSupported(resource: string): boolean {
 const IssuingRequestFields: { [key: string]: IssuingRequestField[] } = {
   [PASSPORT]: PassportIssuingRequestFields,
   [NATIONAL_ID]: NationalIdIssuingRequestFields,
+  [DRIVER_LICENSE]: DriverLicenseIssuingRequestFields,
+  [RESIDENT_PERMIT]: ResidentPermitIssuingRequestFields,
 };
 
 const ResourceAttributes: { [key: string]: Attribute[] } = {
   [PASSPORT]: PassportAttributes,
   [NATIONAL_ID]: NationalIdAttributes,
+  [DRIVER_LICENSE]: DriverLicenseAttributes,
+  [RESIDENT_PERMIT]: ResidentPermitAttributes,
 };
 
 export default {
