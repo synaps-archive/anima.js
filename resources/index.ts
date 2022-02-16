@@ -1,5 +1,9 @@
 import { PassportIssuingRequestFields, PassportAttributes } from "./passport";
 import { Attribute, IssuingRequestField } from "../types";
+import {
+  NationalIdAttributes,
+  NationalIdIssuingRequestFields,
+} from "./national_id";
 
 /* Anima Resources */
 const PASSPORT = "anima:resource:passport";
@@ -22,10 +26,12 @@ function IsSupported(resource: string): boolean {
 /* Ethereum chain */
 const IssuingRequestFields: { [key: string]: IssuingRequestField[] } = {
   [PASSPORT]: PassportIssuingRequestFields,
+  [NATIONAL_ID]: NationalIdIssuingRequestFields,
 };
 
 const ResourceAttributes: { [key: string]: Attribute[] } = {
   [PASSPORT]: PassportAttributes,
+  [NATIONAL_ID]: NationalIdAttributes,
 };
 
 export default {
