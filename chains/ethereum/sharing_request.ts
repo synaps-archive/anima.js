@@ -1,6 +1,17 @@
 import { Attribute } from "../../types";
 
-export function SharingRequest(message: any, attributes: Attribute[]): object {
+export function SharingRequest(
+  message: any,
+  attributes: { [key: string]: string }
+): object {
+  const ethAttributesType: Attribute[] = [];
+  Object.keys(attributes).forEach((key) => {
+    ethAttributesType.push({
+      name: key,
+      type: "string",
+    });
+  });
+
   const challenge = {
     domain: {
       name: "anima",
@@ -30,10 +41,6 @@ export function SharingRequest(message: any, attributes: Attribute[]): object {
           type: "string",
         },
         {
-          name: "type",
-          type: "string",
-        },
-        {
           name: "credential",
           type: "string",
         },
@@ -53,7 +60,7 @@ export function SharingRequest(message: any, attributes: Attribute[]): object {
         { name: "public_address", type: "address" },
         { name: "chain", type: "string" },
       ],
-      Attributes: attributes,
+      Attributes: ethAttributesType,
       EIP712Domain: [
         {
           name: "name",

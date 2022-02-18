@@ -13,27 +13,6 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     });
     return found;
 }
-function GetSharingType(resourceAttributes, requestedAttributes) {
-    var regAttrs = {};
-    Object.keys(requestedAttributes).forEach(function (slug) {
-        var res = IsInResourceAttributes(resourceAttributes, slug);
-        if (IsInResourceAttributes(resourceAttributes, slug) === true) {
-            regAttrs[slug] = true;
-        }
-    });
-    var documentAttrLen = resourceAttributes.length;
-    var registeredAttrs = [];
-    Object.keys(regAttrs).forEach(function (key) {
-        registeredAttrs.push({
-            name: key,
-            type: "string",
-        });
-    });
-    if (documentAttrLen === registeredAttrs.length) {
-        return [registeredAttrs, "credential"];
-    }
-    return [registeredAttrs, "attributes"];
-}
 export function GetSharingRequest(resource, credential, attributes, owner, verifier) {
     if (Resources.IsSupported(resource) === false) {
         throw Error("Resource not supported");
@@ -44,17 +23,11 @@ export function GetSharingRequest(resource, credential, attributes, owner, verif
     if (Wallets.IsSupported(owner.wallet) === false) {
         throw Error("Wallet not supported");
     }
-    var attrs = Resources.ResourceAttributes[resource];
-    var _a = GetSharingType(attrs, attributes), requestedAttributes = _a[0], sharingType = _a[1];
-    if (sharingType === "") {
-        throw Error("Invalid attributes sharing");
-    }
     var message = {
         request: {
             resource: resource,
             shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
             credential: credential,
-            type: sharingType,
             attributes: attributes,
         },
         owner: {
@@ -72,7 +45,7 @@ export function GetSharingRequest(resource, credential, attributes, owner, verif
     var challenge = {};
     switch (owner.chain) {
         case Chains.ETH:
-            challenge = Ethereum.SharingRequest(message, requestedAttributes);
+            challenge = Ethereum.SharingRequest(message, attributes);
             break;
         default:
             throw "Unable to get sharing request";

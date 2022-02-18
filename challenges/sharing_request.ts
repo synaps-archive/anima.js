@@ -20,35 +20,6 @@ function IsInResourceAttributes(
   return found;
 }
 
-function GetSharingType(
-  resourceAttributes: Attribute[],
-  requestedAttributes: { [key: string]: string }
-): [Attribute[], string] {
-  let regAttrs: { [key: string]: boolean } = {};
-
-  Object.keys(requestedAttributes).forEach(function (slug) {
-    const res = IsInResourceAttributes(resourceAttributes, slug);
-    if (IsInResourceAttributes(resourceAttributes, slug) === true) {
-      regAttrs[slug] = true;
-    }
-  });
-
-  const documentAttrLen = resourceAttributes.length;
-
-  let registeredAttrs: Attribute[] = [];
-  Object.keys(regAttrs).forEach((key) => {
-    registeredAttrs.push({
-      name: key,
-      type: "string",
-    });
-  });
-
-  if (documentAttrLen === registeredAttrs.length) {
-    return [registeredAttrs, "credential"];
-  }
-  return [registeredAttrs, "attributes"];
-}
-
 export function GetSharingRequest(
   resource: string,
   credential: string,
@@ -68,18 +39,11 @@ export function GetSharingRequest(
     throw Error("Wallet not supported");
   }
 
-  const attrs = Resources.ResourceAttributes[resource];
-  const [requestedAttributes, sharingType] = GetSharingType(attrs, attributes);
-  if (sharingType === "") {
-    throw Error("Invalid attributes sharing");
-  }
-
   const message = {
     request: {
       resource: resource,
       shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
-      credential: credential,
-      type: sharingType,
+      credential,
       attributes,
     },
     owner: {
@@ -99,7 +63,7 @@ export function GetSharingRequest(
 
   switch (owner.chain) {
     case Chains.ETH:
-      challenge = Ethereum.SharingRequest(message, requestedAttributes);
+      challenge = Ethereum.SharingRequest(message, attributes);
       break;
 
     default:

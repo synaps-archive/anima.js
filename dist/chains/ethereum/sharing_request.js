@@ -10,6 +10,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 export function SharingRequest(message, attributes) {
+    var ethAttributesType = [];
+    Object.keys(attributes).forEach(function (key) {
+        ethAttributesType.push({
+            name: key,
+            type: "string",
+        });
+    });
     var challenge = {
         domain: {
             name: "anima",
@@ -34,10 +41,6 @@ export function SharingRequest(message, attributes) {
                     type: "string",
                 },
                 {
-                    name: "type",
-                    type: "string",
-                },
-                {
                     name: "credential",
                     type: "string",
                 },
@@ -57,7 +60,7 @@ export function SharingRequest(message, attributes) {
                 { name: "public_address", type: "address" },
                 { name: "chain", type: "string" },
             ],
-            Attributes: attributes,
+            Attributes: ethAttributesType,
             EIP712Domain: [
                 {
                     name: "name",
