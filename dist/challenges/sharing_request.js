@@ -31,7 +31,7 @@ export function GetSharingRequest(resource, credential, attributes, owner, verif
             attributes: attributes,
         },
         owner: {
-            id: "anima:wallet:".concat(owner.public_address),
+            id: "anima:owner:".concat(owner.public_address),
             public_address: owner.public_address,
             chain: owner.chain,
             wallet: owner.wallet,

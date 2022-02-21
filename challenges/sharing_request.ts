@@ -47,7 +47,7 @@ export function GetSharingRequest(
       attributes,
     },
     owner: {
-      id: `anima:wallet:${owner.public_address}`,
+      id: `anima:owner:${owner.public_address}`,
       public_address: owner.public_address,
       chain: owner.chain,
       wallet: owner.wallet,
