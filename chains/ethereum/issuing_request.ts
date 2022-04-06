@@ -1,6 +1,6 @@
 import Resources from "../../resources/index";
 
-export function IssuingRequest(resource: string, message: any): object {
+export function IssuingRequest(specs: string, message: any): object {
   const challenge = {
     domain: {
       name: "anima",
@@ -27,7 +27,7 @@ export function IssuingRequest(resource: string, message: any): object {
         { name: "fields", type: "Fields" },
         { name: "attributes", type: "string[]" }
       ],
-      Fields: Resources.IssuingRequestFields[resource],
+      Fields: Resources.IssuingRequestFields[specs],
       Owner: [
         { name: "id", type: "string" },
         { name: "public_address", type: "address" },

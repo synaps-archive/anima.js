@@ -6,12 +6,12 @@ import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 
 export function GetIssuingRequest(
-  resource: string,
+  specs: string,
   fields: any,
   owner: Owner,
   issuer: Issuer
 ) {
-  if (Resources.IsSupported(resource) === false) {
+  if (Resources.IsSupported(specs) === false) {
     throw Error("Resource not supported");
   }
 
@@ -24,10 +24,11 @@ export function GetIssuingRequest(
   }
 
   const message = {
-    request: {
-      resource: resource,
+    authorization: {
+      specs: specs,
       requested_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
       fields,
+      attributes: Resources.ResourceAttributesName(specs)
     },
     owner: {
       id: `anima:owner:${owner.public_address}`,
@@ -47,7 +48,7 @@ export function GetIssuingRequest(
 
   switch (owner.chain) {
     case Chains.ETH:
-      challenge = Ethereum.IssuingRequest(resource, message);
+      challenge = Ethereum.IssuingRequest(specs, message);
       break;
 
     default:
