@@ -21,13 +21,17 @@ function IsInResourceAttributes(
 }
 
 export function GetSharingRequest(
-  resource: string,
+  specs: string,
+  source: {
+    id: string,
+    specs: string
+  },
   credential: string,
   attributes: { [key: string]: string },
   owner: Owner,
   verifier: Verifier
 ): string {
-  if (Resources.IsSupported(resource) === false) {
+  if (Resources.IsSupported(source.specs) === false) {
     throw Error("Resource not supported");
   }
 
@@ -40,10 +44,10 @@ export function GetSharingRequest(
   }
 
   const message = {
-    request: {
-      resource: resource,
-      shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
-      credential,
+    authorization: {
+      specs: specs,
+      shared_at: moment().utc().unix(),
+      source,
       attributes,
     },
     owner: {

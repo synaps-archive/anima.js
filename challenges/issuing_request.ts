@@ -26,7 +26,7 @@ export function GetIssuingRequest(
   const message = {
     authorization: {
       specs: specs,
-      requested_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
+      requested_at: moment().utc().unix(),
       fields,
       attributes: Resources.ResourceAttributesName(specs)
     },
