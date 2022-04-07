@@ -26,7 +26,7 @@ export function GetIssuingRequest(
   const message = {
     authorization: {
       specs: specs,
-      requested_at: moment().utc().unix(),
+      requested_at: moment().utc().unix().toString(),
       fields,
       attributes: Resources.IssuingResourceAttributes(specs)
     },

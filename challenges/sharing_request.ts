@@ -46,7 +46,7 @@ export function GetSharingRequest(
   const message = {
     authorization: {
       specs: specs,
-      shared_at: moment().utc().unix(),
+      shared_at: moment().utc().unix().toString(),
       source,
       attributes,
     },

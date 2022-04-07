@@ -23,7 +23,7 @@ export function IssuingRequest(specs: string, message: any): object {
       ],
       Authorization: [
         { name: "specs", type: "string" },
-        { name: "requested_at", type: "uint64" },
+        { name: "requested_at", type: "string" },
         { name: "fields", type: "Fields" },
         { name: "attributes", type: "Attributes" }
       ],
