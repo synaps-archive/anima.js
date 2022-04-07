@@ -23,31 +23,23 @@ export function SharingRequest(message, attributes) {
             version: "1.0",
             chainId: "1",
         },
-        message: __assign(__assign({}, message), { request: __assign({}, message.request) }),
+        message: __assign(__assign({}, message), { authorization: __assign({}, message.authorization) }),
         primaryType: "Main",
         types: {
             Main: [
-                { name: "request", type: "Request" },
+                { name: "authorization", type: "Authorization" },
                 { name: "verifier", type: "Verifier" },
                 { name: "owner", type: "Owner" },
             ],
-            Request: [
-                {
-                    name: "resource",
-                    type: "string",
-                },
-                {
-                    name: "shared_at",
-                    type: "string",
-                },
-                {
-                    name: "credential",
-                    type: "string",
-                },
-                {
-                    name: "attributes",
-                    type: "Attributes",
-                },
+            Authorization: [
+                { name: "specs", type: "string" },
+                { name: "shared_at", type: "string" },
+                { name: "source", type: "Source" },
+                { name: "attributes", type: "Attributes" },
+            ],
+            Source: [
+                { name: "id", type: "string" },
+                { name: "specs", type: "string" }
             ],
             Owner: [
                 { name: "id", type: "string" },

@@ -13,8 +13,8 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     });
     return found;
 }
-export function GetSharingRequest(resource, credential, attributes, owner, verifier) {
-    if (Resources.IsSupported(resource) === false) {
+export function GetSharingRequest(specs, source, credential, attributes, owner, verifier) {
+    if (Resources.IsSupported(source.specs) === false) {
         throw Error("Resource not supported");
     }
     if (Chains.IsSupported(owner.chain) === false) {
@@ -24,10 +24,10 @@ export function GetSharingRequest(resource, credential, attributes, owner, verif
         throw Error("Wallet not supported");
     }
     var message = {
-        request: {
-            resource: resource,
-            shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
-            credential: credential,
+        authorization: {
+            specs: specs,
+            shared_at: moment().utc().unix().toString(),
+            source: source,
             attributes: attributes,
         },
         owner: {

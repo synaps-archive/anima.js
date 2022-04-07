@@ -3,8 +3,8 @@ import Chains from "../chains";
 import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
-export function GetIssuingRequest(resource, fields, owner, issuer) {
-    if (Resources.IsSupported(resource) === false) {
+export function GetIssuingRequest(specs, fields, owner, issuer) {
+    if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
     if (Chains.IsSupported(owner.chain) === false) {
@@ -14,10 +14,11 @@ export function GetIssuingRequest(resource, fields, owner, issuer) {
         throw Error("Wallet not supported");
     }
     var message = {
-        request: {
-            resource: resource,
-            requested_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
+        authorization: {
+            specs: specs,
+            requested_at: moment().utc().unix().toString(),
             fields: fields,
+            attributes: Resources.IssuingResourceAttributes(specs)
         },
         owner: {
             id: "anima:owner:".concat(owner.public_address),
@@ -35,7 +36,7 @@ export function GetIssuingRequest(resource, fields, owner, issuer) {
     var challenge = {};
     switch (owner.chain) {
         case Chains.ETH:
-            challenge = Ethereum.IssuingRequest(resource, message);
+            challenge = Ethereum.IssuingRequest(specs, message);
             break;
         default:
             throw "Unable to get issuing request";
