@@ -58,7 +58,7 @@ const IssuingResourceAttributesTypes = (key: string) => {
   return ResourceAttributes[key].map((attribute) => {
     return {
       name: attribute.name,
-      type: "boolean"
+      type: "bool"
     }
   })
 }

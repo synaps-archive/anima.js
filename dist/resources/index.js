@@ -42,7 +42,7 @@ var IssuingResourceAttributesTypes = function (key) {
     return ResourceAttributes[key].map(function (attribute) {
         return {
             name: attribute.name,
-            type: "boolean"
+            type: "bool"
         };
     });
 };
