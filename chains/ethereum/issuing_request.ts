@@ -25,9 +25,10 @@ export function IssuingRequest(specs: string, message: any): object {
         { name: "specs", type: "string" },
         { name: "requested_at", type: "uint64" },
         { name: "fields", type: "Fields" },
-        { name: "attributes", type: "string[]" }
+        { name: "attributes", type: "Attributes" }
       ],
       Fields: Resources.IssuingRequestFields[specs],
+      Attributes: Resources.IssuingResourceAttributesTypes(specs),
       Owner: [
         { name: "id", type: "string" },
         { name: "public_address", type: "address" },

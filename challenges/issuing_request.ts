@@ -28,7 +28,7 @@ export function GetIssuingRequest(
       specs: specs,
       requested_at: moment().utc().unix(),
       fields,
-      attributes: Resources.ResourceAttributesName(specs)
+      attributes: Resources.IssuingResourceAttributes(specs)
     },
     owner: {
       id: `anima:owner:${owner.public_address}`,

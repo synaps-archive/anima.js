@@ -46,8 +46,19 @@ const ResourceAttributes: { [key: string]: Attribute[] } = {
   [RESIDENT_PERMIT]: ResidentPermitAttributes,
 };
 
-const ResourceAttributesName = (key: string) => {
-  return ResourceAttributes[key].map((attribute) => attribute.name)
+const IssuingResourceAttributes = (key: string) => {
+  return ResourceAttributes[key].map((attribute) => {
+    return { [attribute.name]: true }
+  })
+}
+
+const IssuingResourceAttributesTypes = (key: string) => {
+  return ResourceAttributes[key].map((attribute) => {
+    return {
+      name: attribute.name,
+      type: "boolean"
+    }
+  })
 }
 
 export default {
@@ -58,5 +69,6 @@ export default {
   IsSupported,
   IssuingRequestFields,
   ResourceAttributes,
-  ResourceAttributesName
+  IssuingResourceAttributes,
+  IssuingResourceAttributesTypes
 };
