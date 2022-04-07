@@ -26,7 +26,6 @@ export function GetSharingRequest(
     id: string,
     specs: string
   },
-  credential: string,
   attributes: { [key: string]: string },
   owner: Owner,
   verifier: Verifier

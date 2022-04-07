@@ -13,7 +13,7 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     });
     return found;
 }
-export function GetSharingRequest(specs, source, credential, attributes, owner, verifier) {
+export function GetSharingRequest(specs, source, attributes, owner, verifier) {
     if (Resources.IsSupported(source.specs) === false) {
         throw Error("Resource not supported");
     }
