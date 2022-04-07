@@ -33,7 +33,7 @@ export function SharingRequest(
       ],
       Authorization: [
         { name: "specs", type: "string" },
-        { name: "shared_at", type: "string" },
+        { name: "shared_at", type: "uint64" },
         { name: "source", type: "Source" },
         { name: "attributes", type: "Attributes" },
       ],
