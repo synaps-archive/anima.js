@@ -47,9 +47,11 @@ const ResourceAttributes: { [key: string]: Attribute[] } = {
 };
 
 const IssuingResourceAttributes = (key: string) => {
-  return ResourceAttributes[key].map((attribute) => {
-    return { [attribute.name]: true }
+  const result: any = {};
+  ResourceAttributes[key].forEach((attribute) => {
+    result[attribute.name] = true;
   })
+  return result;
 }
 
 const IssuingResourceAttributesTypes = (key: string) => {

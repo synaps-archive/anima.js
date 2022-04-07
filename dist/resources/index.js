@@ -32,10 +32,11 @@ var ResourceAttributes = (_b = {},
     _b[RESIDENT_PERMIT] = ResidentPermitAttributes,
     _b);
 var IssuingResourceAttributes = function (key) {
-    return ResourceAttributes[key].map(function (attribute) {
-        var _a;
-        return _a = {}, _a[attribute.name] = true, _a;
+    var result = {};
+    ResourceAttributes[key].forEach(function (attribute) {
+        result[attribute.name] = true;
     });
+    return result;
 };
 var IssuingResourceAttributesTypes = function (key) {
     return ResourceAttributes[key].map(function (attribute) {
