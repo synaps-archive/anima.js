@@ -16,7 +16,7 @@ export function GetIssuingRequest(specs, fields, owner, issuer) {
     var message = {
         authorization: {
             specs: specs,
-            requested_at: moment().utc().unix().toString(),
+            requested_at: moment().utc().unix(),
             fields: fields,
             attributes: Resources.IssuingResourceAttributes(specs)
         },

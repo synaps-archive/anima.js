@@ -15,7 +15,7 @@ export function IssuingRequest(specs, message) {
         domain: {
             name: "anima",
             version: "1.0",
-            chainId: "1",
+            chainId: 0x01,
         },
         message: __assign(__assign({}, message), { authorization: __assign({}, message.authorization) }),
         primaryType: "Main",
@@ -27,7 +27,7 @@ export function IssuingRequest(specs, message) {
             ],
             Authorization: [
                 { name: "specs", type: "string" },
-                { name: "requested_at", type: "string" },
+                { name: "requested_at", type: "uint64" },
                 { name: "fields", type: "Fields" },
                 { name: "attributes", type: "Attributes" }
             ],

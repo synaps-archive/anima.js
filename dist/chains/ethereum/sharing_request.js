@@ -21,7 +21,7 @@ export function SharingRequest(message, attributes) {
         domain: {
             name: "anima",
             version: "1.0",
-            chainId: "1",
+            chainId: 0x01,
         },
         message: __assign(__assign({}, message), { authorization: __assign({}, message.authorization) }),
         primaryType: "Main",
@@ -33,7 +33,7 @@ export function SharingRequest(message, attributes) {
             ],
             Authorization: [
                 { name: "specs", type: "string" },
-                { name: "shared_at", type: "string" },
+                { name: "shared_at", type: "uint64" },
                 { name: "source", type: "Source" },
                 { name: "attributes", type: "Attributes" },
             ],
