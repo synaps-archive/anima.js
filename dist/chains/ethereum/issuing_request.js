@@ -21,7 +21,6 @@ export function IssuingRequest(specs, message) {
         primaryType: "Main",
         types: {
             Main: [
-                { name: "authorization", type: "Authorization" },
                 { name: "issuer", type: "Issuer" },
                 { name: "owner", type: "Owner" },
                 { name: "specs", type: "string" },
