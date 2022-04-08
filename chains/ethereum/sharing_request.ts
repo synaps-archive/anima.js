@@ -20,22 +20,16 @@ export function SharingRequest(
     },
     message: {
       ...message,
-      authorization: {
-        ...message.authorization,
-      },
     },
     primaryType: "Main",
     types: {
       Main: [
-        { name: "authorization", type: "Authorization" },
-        { name: "verifier", type: "Verifier" },
-        { name: "owner", type: "Owner" },
-      ],
-      Authorization: [
         { name: "specs", type: "string" },
         { name: "shared_at", type: "uint64" },
         { name: "source", type: "Source" },
         { name: "attributes", type: "Attributes" },
+        { name: "verifier", type: "Verifier" },
+        { name: "owner", type: "Owner" },
       ],
       Source: [
         { name: "id", type: "string" },

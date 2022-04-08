@@ -9,9 +9,6 @@ export function IssuingRequest(specs: string, message: any): object {
     },
     message: {
       ...message,
-      authorization: {
-        ...message.authorization,
-      },
     },
 
     primaryType: "Main",
@@ -20,8 +17,6 @@ export function IssuingRequest(specs: string, message: any): object {
         { name: "authorization", type: "Authorization" },
         { name: "issuer", type: "Issuer" },
         { name: "owner", type: "Owner" },
-      ],
-      Authorization: [
         { name: "specs", type: "string" },
         { name: "requested_at", type: "uint64" },
         { name: "fields", type: "Fields" },

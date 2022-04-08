@@ -47,12 +47,10 @@ export function GetSharingRequest(
   })
 
   const message = {
-    authorization: {
-      specs: specs,
-      shared_at: moment().utc().unix(),
-      source,
-      attributes,
-    },
+    specs: specs,
+    shared_at: moment().utc().unix(),
+    source,
+    attributes,
     owner: {
       id: `anima:owner:${owner.public_address}`,
       public_address: owner.public_address,
