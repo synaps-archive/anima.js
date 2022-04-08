@@ -5,7 +5,7 @@ export function IssuingRequest(specs: string, message: any): object {
     domain: {
       name: "anima",
       version: "1.0",
-      chainId: "1",
+      chainId: 0x01,
     },
     message: {
       ...message,
