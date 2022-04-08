@@ -15,17 +15,15 @@ export function IssuingRequest(specs, message) {
         domain: {
             name: "anima",
             version: "1.0",
-            chainId: 0x01,
+            chainId: "1",
         },
-        message: __assign(__assign({}, message), { authorization: __assign({}, message.authorization) }),
+        message: __assign({}, message),
         primaryType: "Main",
         types: {
             Main: [
                 { name: "authorization", type: "Authorization" },
                 { name: "issuer", type: "Issuer" },
                 { name: "owner", type: "Owner" },
-            ],
-            Authorization: [
                 { name: "specs", type: "string" },
                 { name: "requested_at", type: "uint64" },
                 { name: "fields", type: "Fields" },

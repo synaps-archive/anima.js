@@ -14,12 +14,10 @@ export function GetIssuingRequest(specs, fields, owner, issuer) {
         throw Error("Wallet not supported");
     }
     var message = {
-        authorization: {
-            specs: specs,
-            requested_at: moment().utc().unix(),
-            fields: fields,
-            attributes: Resources.IssuingResourceAttributes(specs)
-        },
+        specs: specs,
+        requested_at: moment().utc().unix(),
+        fields: fields,
+        attributes: Resources.IssuingResourceAttributes(specs),
         owner: {
             id: "anima:owner:".concat(owner.public_address),
             chain: owner.chain,

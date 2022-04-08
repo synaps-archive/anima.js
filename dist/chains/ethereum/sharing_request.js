@@ -21,21 +21,18 @@ export function SharingRequest(message, attributes) {
         domain: {
             name: "anima",
             version: "1.0",
-            chainId: 0x01,
+            chainId: "1",
         },
-        message: __assign(__assign({}, message), { authorization: __assign({}, message.authorization) }),
+        message: __assign({}, message),
         primaryType: "Main",
         types: {
             Main: [
-                { name: "authorization", type: "Authorization" },
-                { name: "verifier", type: "Verifier" },
-                { name: "owner", type: "Owner" },
-            ],
-            Authorization: [
                 { name: "specs", type: "string" },
                 { name: "shared_at", type: "uint64" },
                 { name: "source", type: "Source" },
                 { name: "attributes", type: "Attributes" },
+                { name: "verifier", type: "Verifier" },
+                { name: "owner", type: "Owner" },
             ],
             Source: [
                 { name: "id", type: "string" },
