@@ -42,6 +42,10 @@ export function GetSharingRequest(
     throw Error("Wallet not supported");
   }
 
+  Object.keys(attributes).forEach((attribute) => {
+    attributes[attribute] = `anima:credential:${attributes[attribute]}`
+  })
+
   const message = {
     authorization: {
       specs: specs,
