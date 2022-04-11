@@ -22,18 +22,10 @@ function IsInResourceAttributes(
 
 export function GetSharingRequest(
   specs: string,
-  source: {
-    id: string,
-    specs: string
-  },
   attributes: { [key: string]: string },
   owner: Owner,
   verifier: Verifier
 ): string {
-  if (Resources.IsSupported(source.specs) === false) {
-    throw Error("Resource not supported");
-  }
-
   if (Chains.IsSupported(owner.chain) === false) {
     throw Error("Chain not supported");
   }
@@ -43,13 +35,12 @@ export function GetSharingRequest(
   }
 
   Object.keys(attributes).forEach((attribute) => {
-    attributes[attribute] = `anima:credential:${attributes[attribute]}`
-  })
+    attributes[attribute] = `anima:credential:${attributes[attribute]}`;
+  });
 
   const message = {
     specs: specs,
     shared_at: moment().utc().unix(),
-    source,
     attributes,
     owner: {
       id: `anima:owner:${owner.public_address}`,

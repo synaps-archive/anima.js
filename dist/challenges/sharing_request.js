@@ -1,7 +1,6 @@
 import moment from "moment";
 import Chains from "../chains";
 import Wallets from "../wallets";
-import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 function IsInResourceAttributes(resourceAttributes, slug) {
     var found = false;
@@ -13,10 +12,7 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     });
     return found;
 }
-export function GetSharingRequest(specs, source, attributes, owner, verifier) {
-    if (Resources.IsSupported(source.specs) === false) {
-        throw Error("Resource not supported");
-    }
+export function GetSharingRequest(specs, attributes, owner, verifier) {
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
@@ -29,7 +25,6 @@ export function GetSharingRequest(specs, source, attributes, owner, verifier) {
     var message = {
         specs: specs,
         shared_at: moment().utc().unix(),
-        source: source,
         attributes: attributes,
         owner: {
             id: "anima:owner:".concat(owner.public_address),

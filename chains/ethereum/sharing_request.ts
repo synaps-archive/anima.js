@@ -26,14 +26,9 @@ export function SharingRequest(
       Main: [
         { name: "specs", type: "string" },
         { name: "shared_at", type: "uint64" },
-        { name: "source", type: "Source" },
         { name: "attributes", type: "Attributes" },
         { name: "verifier", type: "Verifier" },
         { name: "owner", type: "Owner" },
-      ],
-      Source: [
-        { name: "id", type: "string" },
-        { name: "specs", type: "string" }
       ],
       Owner: [
         { name: "id", type: "string" },
