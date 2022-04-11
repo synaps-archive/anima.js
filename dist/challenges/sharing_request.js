@@ -19,9 +19,6 @@ export function GetSharingRequest(specs, attributes, owner, verifier) {
     if (Wallets.IsSupported(owner.wallet) === false) {
         throw Error("Wallet not supported");
     }
-    Object.keys(attributes).forEach(function (attribute) {
-        attributes[attribute] = "anima:credential:".concat(attributes[attribute]);
-    });
     var message = {
         specs: specs,
         shared_at: moment().utc().unix(),
