@@ -4,10 +4,10 @@ import { NationalIdAttributes, NationalIdIssuingRequestFields, } from "./nationa
 import { DriverLicenseAttributes, DriverLicenseIssuingRequestFields, } from "./driver_license";
 import { ResidentPermitAttributes, ResidentPermitIssuingRequestFields, } from "./resident_permit";
 /* Anima Resources */
-var PASSPORT = "anima:resource:passport";
-var NATIONAL_ID = "anima:resource:national_id";
-var DRIVER_LICENSE = "anima:resource:driver_license";
-var RESIDENT_PERMIT = "anima:resource:resident_permit";
+var PASSPORT = "anima:specs:document/passport@1.0.0";
+var NATIONAL_ID = "anima:specs:document/national_id@1.0.0";
+var DRIVER_LICENSE = "anima:specs:document/driver_license@1.0.0";
+var RESIDENT_PERMIT = "anima:specs:document/resident_permit@1.0.0";
 /* Anima Supported Resources */
 var AnimaResources = {
     PASSPORT: true,
@@ -31,6 +31,21 @@ var ResourceAttributes = (_b = {},
     _b[DRIVER_LICENSE] = DriverLicenseAttributes,
     _b[RESIDENT_PERMIT] = ResidentPermitAttributes,
     _b);
+var IssuingResourceAttributes = function (key) {
+    var result = {};
+    ResourceAttributes[key].forEach(function (attribute) {
+        result[attribute.name] = true;
+    });
+    return result;
+};
+var IssuingResourceAttributesTypes = function (key) {
+    return ResourceAttributes[key].map(function (attribute) {
+        return {
+            name: attribute.name,
+            type: "bool"
+        };
+    });
+};
 export default {
     PASSPORT: PASSPORT,
     NATIONAL_ID: NATIONAL_ID,
@@ -39,4 +54,6 @@ export default {
     IsSupported: IsSupported,
     IssuingRequestFields: IssuingRequestFields,
     ResourceAttributes: ResourceAttributes,
+    IssuingResourceAttributes: IssuingResourceAttributes,
+    IssuingResourceAttributesTypes: IssuingResourceAttributesTypes
 };

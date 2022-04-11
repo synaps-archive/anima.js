@@ -21,16 +21,11 @@ function IsInResourceAttributes(
 }
 
 export function GetSharingRequest(
-  resource: string,
-  credential: string,
+  specs: string,
   attributes: { [key: string]: string },
   owner: Owner,
   verifier: Verifier
 ): string {
-  if (Resources.IsSupported(resource) === false) {
-    throw Error("Resource not supported");
-  }
-
   if (Chains.IsSupported(owner.chain) === false) {
     throw Error("Chain not supported");
   }
@@ -40,12 +35,9 @@ export function GetSharingRequest(
   }
 
   const message = {
-    request: {
-      resource: resource,
-      shared_at: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
-      credential,
-      attributes,
-    },
+    specs: specs,
+    shared_at: moment().utc().unix(),
+    attributes,
     owner: {
       id: `anima:owner:${owner.public_address}`,
       public_address: owner.public_address,

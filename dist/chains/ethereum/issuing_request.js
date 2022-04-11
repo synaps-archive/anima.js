@@ -10,33 +10,26 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import Resources from "../../resources/index";
-export function IssuingRequest(resource, message) {
+export function IssuingRequest(specs, message) {
     var challenge = {
         domain: {
             name: "anima",
             version: "1.0",
             chainId: "1",
         },
-        message: __assign(__assign({}, message), { request: __assign({}, message.request) }),
+        message: __assign({}, message),
         primaryType: "Main",
         types: {
             Main: [
-                { name: "request", type: "Request" },
                 { name: "issuer", type: "Issuer" },
                 { name: "owner", type: "Owner" },
-            ],
-            Fields: Resources.IssuingRequestFields[resource],
-            Request: [
-                {
-                    name: "resource",
-                    type: "string",
-                },
-                {
-                    name: "requested_at",
-                    type: "string",
-                },
+                { name: "specs", type: "string" },
+                { name: "requested_at", type: "uint64" },
                 { name: "fields", type: "Fields" },
+                { name: "attributes", type: "Attributes" }
             ],
+            Fields: Resources.IssuingRequestFields[specs],
+            Attributes: Resources.IssuingResourceAttributesTypes(specs),
             Owner: [
                 { name: "id", type: "string" },
                 { name: "public_address", type: "address" },
@@ -50,18 +43,9 @@ export function IssuingRequest(resource, message) {
                 { name: "chain", type: "string" },
             ],
             EIP712Domain: [
-                {
-                    name: "name",
-                    type: "string",
-                },
-                {
-                    name: "chainId",
-                    type: "uint256",
-                },
-                {
-                    name: "version",
-                    type: "string",
-                },
+                { name: "name", type: "string" },
+                { name: "chainId", type: "uint256" },
+                { name: "version", type: "string" },
             ],
         },
     };

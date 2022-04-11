@@ -14,10 +14,10 @@ import {
 } from "./resident_permit";
 
 /* Anima Resources */
-const PASSPORT = "anima:resource:passport";
-const NATIONAL_ID = "anima:resource:national_id";
-const DRIVER_LICENSE = "anima:resource:driver_license";
-const RESIDENT_PERMIT = "anima:resource:resident_permit";
+const PASSPORT = "anima:specs:document/passport@1.0.0";
+const NATIONAL_ID = "anima:specs:document/national_id@1.0.0";
+const DRIVER_LICENSE = "anima:specs:document/driver_license@1.0.0";
+const RESIDENT_PERMIT = "anima:specs:document/resident_permit@1.0.0";
 
 /* Anima Supported Resources */
 const AnimaResources: { [key: string]: boolean } = {
@@ -46,6 +46,23 @@ const ResourceAttributes: { [key: string]: Attribute[] } = {
   [RESIDENT_PERMIT]: ResidentPermitAttributes,
 };
 
+const IssuingResourceAttributes = (key: string) => {
+  const result: any = {};
+  ResourceAttributes[key].forEach((attribute) => {
+    result[attribute.name] = true;
+  })
+  return result;
+}
+
+const IssuingResourceAttributesTypes = (key: string) => {
+  return ResourceAttributes[key].map((attribute) => {
+    return {
+      name: attribute.name,
+      type: "bool"
+    }
+  })
+}
+
 export default {
   PASSPORT,
   NATIONAL_ID,
@@ -54,4 +71,6 @@ export default {
   IsSupported,
   IssuingRequestFields,
   ResourceAttributes,
+  IssuingResourceAttributes,
+  IssuingResourceAttributesTypes
 };
